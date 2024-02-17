@@ -1,4 +1,4 @@
-class UserBlueprint < BluePrinter::Base
+class UserBlueprint < Blueprinter::Base
   identifier :id
   view :index do
     field :full_name do |user|
