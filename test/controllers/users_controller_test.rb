@@ -1,12 +1,14 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
+  test 'should get index' do
     get users_index_url
     assert_response :success
   end
 
-  test "should get index2" do
+  test 'should get index2' do
     get users_index2_url
     assert_response :success
   end

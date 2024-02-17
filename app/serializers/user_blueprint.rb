@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserBlueprint < Blueprinter::Base
   identifier :id
   view :index do
@@ -7,7 +9,5 @@ class UserBlueprint < Blueprinter::Base
     field :age
   end
   view :show do
-
   end
-
 end
