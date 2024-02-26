@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :get_users, only: %i[search]
+  before_action :get_users, only: [:search, :app, :index]
 
   def index
     users = UserBlueprint.render User.all, view: :index
@@ -24,9 +24,16 @@ class UsersController < ApplicationController
     render json: @users, status: :ok
   end
 
+  def app
+      @users = @users.search(params[:first_name])
+      @apps = @users.map { |user| user.app }
+      render json: @apps, status: :ok
+  end
+
   private
 
   def get_users
     @users = User.all
   end
+
 end
