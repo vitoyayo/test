@@ -8,6 +8,14 @@ class UserBlueprint < Blueprinter::Base
     end
     field :age
   end
-  view :show do
+  view :show_app do
+    field :full_name do |user|
+      "#{user.first_name} #{user.last_name}"
+    end
+    field :user do |user| 
+      user.apps.each do |app| 
+        AppBlueprint.render_as_json(app, view: :index)
+      end
+    end
   end
 end

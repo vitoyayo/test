@@ -4,8 +4,9 @@ class UsersController < ApplicationController
   before_action :get_users, only: [:search, :app, :index]
 
   def index
-    users = UserBlueprint.render User.all, view: :index
-    render json: users, status: :ok
+    #users = UserBlueprint.render User.all, view: :index
+
+    render json: get_serializer(UserBlueprint, :index, User.all), status: :ok
   end
 
   def index2
@@ -26,11 +27,16 @@ class UsersController < ApplicationController
 
   def app
       @users = @users.search(params[:first_name])
-      @apps = @users.map { |user| user.app }
-      render json: @apps, status: :ok
+      render json: get_serializer(UserBlueprint, :show_app, @users), status: :ok
   end
 
   private
+
+  def get_serializer(serializer, view, scope)
+
+    serializer.render scope, view: view
+
+  end
 
   def get_users
     @users = User.all
