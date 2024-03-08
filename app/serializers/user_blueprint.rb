@@ -13,9 +13,9 @@ class UserBlueprint < Blueprinter::Base
       "#{user.first_name} #{user.last_name}"
     end
     field :user do |user| 
-      user.apps.each do |app| 
-        AppBlueprint.render_as_json(app, view: :index)
-      end
+     # user.apps.each do |app| 
+        AppBlueprint.render_as_json(user.apps, view: :index)
+      #end
     end
   end
 end
