@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def index
     #users = UserBlueprint.render User.all, view: :index
-
     render json: get_serializer(UserBlueprint, :index, User.all), status: :ok
   end
 

@@ -37,24 +37,24 @@ gem 'devise'
 gem 'audited'
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'byebug'
+  gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'rubocop-rspec'
-  gem 'ruboco-rails'
+  gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
 end
 
 group :test do
-  gem 'datebase_cleaner'
-  gem 'simplecov'
+  gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'simplecov'
 end
 
 group :development do
-  gem 'byebug'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'error_highlight', '>= 0.4.0', platforms: [:ruby]
